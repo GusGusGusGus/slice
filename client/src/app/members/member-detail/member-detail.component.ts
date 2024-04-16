@@ -1,49 +1,44 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
+import { GalleryModule, GalleryItem, ImageItem, Gallery, ImageSize } from 'ng-gallery';
+import 'hammerjs';
+import { SharedModule } from 'src/app/_modules/shared.module';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
-  styleUrls: ['./member-detail.component.css']
+  styleUrls: ['./member-detail.component.css'],
+  standalone: true,
+  imports: [CommonModule, SharedModule, GalleryModule]
 })
 export class MemberDetailComponent {
   member: Member;
-  galleryOptions: NgxGalleryOptions[];
-  galleryImages: NgxGalleryImage[];
+  galleryImages: GalleryItem[] = [];
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute) {
-  }
 
-  ngOnInit() {
-    this.loadMember();
-
-    this.galleryOptions = [
-      {
-        width: '500px',
-        height: '500px',
-        imagePercent: 100,
-        thumbnailsColumns: 4,
-        imageAnimation: NgxGalleryAnimation.Slide,
-        preview: false
-      }
-    ];
-
-   
-  }
-
-  getImages(): NgxGalleryImage[] {
-    const imageUrls = [];
-    for (const photo of this.member.photos) {
-      imageUrls.push({
-        small: photo?.url,
-        medium: photo?.url,
-        big: photo?.url
-      });
+  constructor(
+    private memberService: MembersService, 
+    private route: ActivatedRoute) {
     }
-    return imageUrls;
+    
+    ngOnInit() {
+      this.loadMember();
+      
+
+  }
+
+  getImages(): GalleryItem[] {
+    const images = [];
+    for (const photo of this.member.photos) {
+      images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
+      images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
+      images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
+    }
+    return images;
   }
 
   loadMember() {
