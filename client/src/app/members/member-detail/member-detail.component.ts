@@ -35,8 +35,6 @@ export class MemberDetailComponent {
     const images = [];
     for (const photo of this.member.photos) {
       images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
-      images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
-      images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
     }
     return images;
   }
