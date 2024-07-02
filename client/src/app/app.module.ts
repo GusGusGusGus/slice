@@ -27,6 +27,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 //DetailsComponent is now a standalone component, so it isn't present in the declarations array of the AppModule anymore. 
 @NgModule({
@@ -46,7 +47,7 @@ import { DateInputComponent } from './_forms/date-input/date-input.component';
     PhotoEditorComponent,
     TextInputComponent,
     DateInputComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,9 +56,8 @@ import { DateInputComponent } from './_forms/date-input/date-input.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SharedModule,
-
-  ],
+    SharedModule
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

@@ -6,6 +6,7 @@ import { GalleryModule, GalleryItem, ImageItem, Gallery, ImageSize } from 'ng-ga
 import 'hammerjs';
 import { SharedModule } from 'src/app/_modules/shared.module';
 import { CommonModule } from '@angular/common';
+import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 
 
 @Component({
