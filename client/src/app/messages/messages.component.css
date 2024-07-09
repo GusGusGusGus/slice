@@ -1,0 +1,15 @@
+.img-circle {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.my-pagination::ng-deep .page-item.active .page-link {
+    color: black !important;
+}
+
+.my-pagination::ng-deep .page-item:hover .page-link {
+    color: black !important;
+    font-weight: bold;
+}

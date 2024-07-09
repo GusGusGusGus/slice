@@ -14,6 +14,8 @@ namespace API.Data
         }
         public DbSet<AppUser> Users { get; set; }
         public DbSet<UserLike> Likes { get; set; }
+        public DbSet<Message> Messages { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -37,6 +39,16 @@ namespace API.Data
                 .OnDelete(DeleteBehavior.Cascade);
                 //// in case of error during migration, add the following line:
                 // .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Message>()
+                .HasOne(s => s.Sender)
+                .WithMany(m => m.MessagesSent)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Message>()
+                .HasOne(s => s.Recipient)
+                .WithMany(m => m.MessagesReceived)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

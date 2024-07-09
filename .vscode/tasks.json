@@ -36,6 +36,19 @@
                 "${workspaceFolder}/DatingApp.sln"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "ng-serve",
+            "type": "shell",
+            "command": "ng serve",
+            "isBackground": true,
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

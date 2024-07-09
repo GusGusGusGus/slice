@@ -33,5 +33,18 @@
             "request": "attach",
             "requireExactSource": false
         },
+        {
+            // Launch Angular app in Chrome for debugging
+            "name": "Launch Angular app in Chrome",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "https://localhost:4200",
+            "webRoot": "${workspaceFolder}/client",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true,
+            "trace": true
+        }
     ]
 }
