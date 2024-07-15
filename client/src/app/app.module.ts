@@ -28,6 +28,11 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { HasRoleDirective } from './_directives/has-role.directive';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { UserManagementComponent } from "./admin/user-management/user-management.component";
+import { PhotoManagementComponent } from "./admin/photo-management/photo-management.component";
+import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 
 //DetailsComponent is now a standalone component, so it isn't present in the declarations array of the AppModule anymore. 
 @NgModule({
@@ -46,7 +51,12 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     MemberEditComponent,
     PhotoEditorComponent,
     TextInputComponent,
-    DateInputComponent
+    DateInputComponent,
+    HasRoleDirective,
+    PhotoManagementComponent,
+    UserManagementComponent,
+    AdminPanelComponent,
+    RolesModalComponent
     ],
   imports: [
     BrowserModule,
@@ -56,8 +66,9 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SharedModule
-    ],
+    SharedModule,
+ 
+],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
