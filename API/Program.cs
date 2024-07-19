@@ -5,6 +5,7 @@ using API.Extensions;
 using API.Intefaces;
 using API.Middleware;
 using API.Services;
+using API.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddIdentityServices(config);
+builder.Services.AddSignalR();
+// builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -40,6 +43,7 @@ app.UseCors(
                                     "https://localhost:4200")
                             .AllowAnyHeader()
                             .AllowAnyMethod()
+                            .AllowCredentials()
                              ); 
 
 app.UseAuthentication();
@@ -47,6 +51,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<PresenceHub>("/hubs/presence");
+app.MapHub<MessageHub>("/hubs/message");
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;

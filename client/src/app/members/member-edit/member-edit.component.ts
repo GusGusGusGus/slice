@@ -7,7 +7,6 @@ import { Member } from 'src/app/_models/member';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { MembersService } from 'src/app/_services/members.service';
-import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 
 @Component({
   selector: 'app-member-edit',

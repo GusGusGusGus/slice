@@ -4,11 +4,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Message } from 'src/app/_models/message';
 import { SharedModule } from 'src/app/_modules/shared.module';
 import { MessageService } from 'src/app/_services/message.service';
+import { ParseIntPipe } from 'src/app/pipes/parse-int.pipe';
 
 @Component({
   selector: 'app-member-messages',
   standalone: true,
-  imports: [CommonModule, SharedModule, FormsModule],
+  imports: [CommonModule, SharedModule, FormsModule, ParseIntPipe],
   templateUrl: './member-messages.component.html',
   styleUrl: './member-messages.component.css'
 })
@@ -18,15 +19,14 @@ export class MemberMessagesComponent {
   @Input() username: string;
   messageContent: string;
 
-  constructor(private messageService: MessageService) {
+  constructor(public messageService: MessageService) {
   }
 
   ngOnInit(): void {
   }
 
   sendMessage() {
-    this.messageService.sendMessage(this.username, this.messageContent).subscribe(message => {
-      this.messages.push(message);
+    this.messageService.sendMessage(this.username, this.messageContent).then(() => {
       this.messageForm.reset();
     });
   }
