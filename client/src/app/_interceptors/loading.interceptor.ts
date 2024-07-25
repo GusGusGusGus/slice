@@ -14,7 +14,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     this.busyService.busy();
 
     return next.handle(request).pipe(
-      delay(1000), // Simulate a delay of 1 second
+      // delay(1000), // Simulate a delay of 1 second
       finalize(() => {
         // Hide loading spinner or perform any other loading-related tasks after the request is sent
         this.busyService.idle();
