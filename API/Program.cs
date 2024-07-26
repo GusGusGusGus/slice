@@ -40,7 +40,8 @@ app.UseHttpsRedirection();
 
 app.UseCors(
     policy =>  policy.WithOrigins("http://localhost:4200", 
-                                    "https://localhost:4200")
+                                    "https://localhost:4200",
+                                    "https://mingledatingapp-6a24bc067511.herokuapp.com")
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials()

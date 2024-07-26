@@ -34,6 +34,9 @@ namespace API.Data
                 // using var hmac = new HMACSHA512();
 
                 user.UserName = user.UserName.ToLower();
+                user.Created = DateTime.UtcNow;
+                user.LastActive = DateTime.UtcNow;
+                user.DateOfBirth = DateTime.SpecifyKind(new DateTime(1990, 1, 1), DateTimeKind.Utc);
                 // user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("azaz"));
                 // user.PasswordSalt = hmac.Key;
 
