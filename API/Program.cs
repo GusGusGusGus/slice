@@ -38,14 +38,27 @@ app.UseHttpsRedirection();
 
 // app.UseRouting();
 
-app.UseCors(
-    policy =>  policy.WithOrigins("http://localhost:4200", 
-                                    "https://localhost:4200",
-                                    "https://mingledatingapp-6a24bc067511.herokuapp.com")
-                            .AllowAnyHeader()
-                            .AllowAnyMethod()
-                            .AllowCredentials()
-                             ); 
+//this env will contain deployed app link and will be updated in heroku upon post_deployment script
+var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',');
+var localOrigins = new[] { "http://localhost:4200", "https://localhost:4200" };
+
+if (allowedOrigins != null && allowedOrigins.Length > 0)
+{
+    app.UseCors(
+        policy =>  policy.WithOrigins(allowedOrigins.Concat(localOrigins).ToArray())
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials());
+}
+else
+{
+    app.UseCors(
+        policy =>  policy.WithOrigins(localOrigins)
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials());
+}
+ 
 
 app.UseAuthentication();
 
