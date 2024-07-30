@@ -12,7 +12,7 @@ export class ListsComponent {
   members: Partial<Member[]>;
   predicate = 'liked';
   pageNumber = 1;
-  pageSize = 5;
+  pageSize = 25;
   pagination: Pagination;
 
   constructor(private memberService: MembersService) { }

@@ -8,3 +8,61 @@ img {
     border: 2px solid #fff;
     border-radius: 50%;
 }
+
+#navbar {
+    /* overflow: hidden; */
+    background-color: #f1f1f1;
+    padding: 25px 10px; /* Large padding which will shrink on scroll (using JS) */
+    transition: 0.4s; 
+    position: fixed; /* Sticky/fixed navbar */
+    width: 100%;
+    top: 0; /* At the top */
+    z-index: 99;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    text-align: center;
+    transition: 0.4s; 
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#navbar #logo {
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.nav-link.hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+.nav-link.active {
+    background-color: #2196F3;
+    color: white; 
+}
+ 
+
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active {
+    color: black !important;
+    font-weight: bold !important;
+}
+  
+@media screen and (max-width: 580px) {
+    #navbar {
+        padding: 10px 5px !important;
+    }
+    #navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    #navbar-right {
+        float: none;
+    }
+}

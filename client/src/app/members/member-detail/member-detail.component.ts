@@ -13,6 +13,10 @@ import { PresenceService } from 'src/app/_services/presence.service';
 import { AccountService } from 'src/app/_services/account.service';
 import { User } from 'src/app/_models/user';
 import { take } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { MembersService } from 'src/app/_services/members.service';
+
+
 
 
 @Component({
@@ -36,7 +40,9 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
     private messageService: MessageService,
     private route: ActivatedRoute,
     private accountService: AccountService,
-    private router: Router ) {
+    private router: Router,
+    private membersService: MembersService,
+    private toastr: ToastrService ) {
       this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
@@ -83,6 +89,13 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
     else {
       this.messageService.stopHubConnection();
     }
+  }
+
+  
+  addLike(member: Member) {
+    this.membersService.addLike(member.username).subscribe(() => {
+      this.toastr.success('You have liked ' + member.knownAs);
+    });
   }
 
   ngOnDestroy(): void {

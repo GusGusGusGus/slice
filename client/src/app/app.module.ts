@@ -32,6 +32,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserManagementComponent } from "./admin/user-management/user-management.component";
 import { PhotoManagementComponent } from "./admin/photo-management/photo-management.component";
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
+import { ParticlesModule } from './particles/particles.module';
 
 //DetailsComponent is now a standalone component, so it isn't present in the declarations array of the AppModule anymore. 
 @NgModule({
@@ -55,7 +56,7 @@ import { RolesModalComponent } from './modals/roles-modal/roles-modal.component'
     PhotoManagementComponent,
     UserManagementComponent,
     AdminPanelComponent,
-    RolesModalComponent
+    RolesModalComponent,
     ],
   imports: [
     BrowserModule,
@@ -66,6 +67,7 @@ import { RolesModalComponent } from './modals/roles-modal/roles-modal.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
+    ParticlesModule
  
 ],
   providers: [

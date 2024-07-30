@@ -47,6 +47,11 @@ export class MemberListComponent {
     this.loadMembers();
   }
 
+  onGenderChange(gender: string): void {
+    this.userParams.gender = gender;
+    this.loadMembers();
+  }
+
 }
 
 

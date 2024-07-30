@@ -7,3 +7,8 @@
     font-weight: bold;
 }
 
+.filtered-lists {
+   white-space: nowrap !important;
+   min-width: 100px;
+}
+

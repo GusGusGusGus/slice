@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary" id="navbar">
     <div class="container">
-      <a class="navbar-brand" href="#">Mingle</a>
+     
+      <a class="navbar-brand" id="logo" href="#">👉👌 Mingle</a>
       <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
@@ -21,13 +22,13 @@
             <a class="nav-link" routerLink='/admin'routerLinkActive='active' >Admin</a>
           </li>
         </ng-container>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink='/errors'routerLinkActive='active' >Errors</a>
-        </li>
+        </li> -->
         </ul>
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
           <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.username}}">
-          <a class="dropdown-toggle text-light" dropdownToggle style="color: white;text-decoration: none; margin-left: 1rem;" >Welcome {{user.knownAs || user.username | titlecase}}</a>
+          <a class="dropdown-toggle text-light" dropdownToggle style="color: white; text-decoration: none; margin-left: 1rem;" >Welcome {{user.knownAs || user.username | titlecase}}</a>
           <div class="dropdown-menu mt-3" *dropdownMenu>
             <a class="dropdown-item" routerLink='/member/edit' routerLinkActive='active'>Edit Profile</a>
             <div class="dropdown-divider"></div>
@@ -53,3 +54,6 @@
       </div>
     <!-- </div> -->
   </nav>
+
+
+  
