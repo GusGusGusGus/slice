@@ -4,8 +4,28 @@
         <h1>Find your match</h1>
         <p class="lead">Come on in to view your matches... all you need to do is sign up!</p>
         <div class="text-center">
-            <button (click)="registerToggle()"  class="btn btn-primary btn-lg me-2">Register</button>
-            <button class="btn btn-info btn-lg">Learn more</button>
+            <br>
+            <br>
+            <button (click)="registerToggle()"  class="btn btn-success btn-lg me-2">Create an Account</button>
+  
+            <br>
+            <br>
+            <div class="separator">
+                <strong><em>OR</em></strong>
+            </div>
+        
+            <br>
+            <br>
+
+                <h2 class="text-center text-primary">Sign in</h2>
+                <button class="btn btn-primary mt-2" type="button" style="background-color: #DB4437; color: white; width: 20%;">
+                    <i class="fa fa-google mr-2"></i> Log in with Google
+                </button>  <br>
+                <button class="btn btn-primary mt-2" type="button" style="background-color: #3b5998; color: white; width: 20%;">
+                    <i class="fa fa-facebook-f mr-2"></i> Log in with Facebook
+                </button>
+
+
         </div>
       
     </div>
@@ -15,5 +35,10 @@
                 <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
+    </div>
+    <div *ngIf="resetPasswordMode" class="container">
+       
+                <app-reset-password (cancelResetPassword)="cancelResetPasswordMode($event)"></app-reset-password>
+          
     </div>
 </div>

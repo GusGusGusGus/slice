@@ -33,6 +33,8 @@ import { UserManagementComponent } from "./admin/user-management/user-management
 import { PhotoManagementComponent } from "./admin/photo-management/photo-management.component";
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 import { ParticlesModule } from './particles/particles.module';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordModalComponent } from './modals/reset-password-modal/reset-password-modal.component';
 
 //DetailsComponent is now a standalone component, so it isn't present in the declarations array of the AppModule anymore. 
 @NgModule({
@@ -57,6 +59,8 @@ import { ParticlesModule } from './particles/particles.module';
     UserManagementComponent,
     AdminPanelComponent,
     RolesModalComponent,
+    ResetPasswordComponent,
+    ResetPasswordModalComponent
     ],
   imports: [
     BrowserModule,

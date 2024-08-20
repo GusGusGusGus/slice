@@ -19,8 +19,8 @@ export class AccountService {
 
   constructor(private http: HttpClient, private presence: PresenceService) { }
 
-  login(model: any) {
-    return this.http.post<User>(this.baseUrl + "account/login", model)
+  login(model: any, options?: {headers?: any}): Observable<any> {
+    return this.http.post<User>(this.baseUrl + "account/login", model, options)
     .pipe(
       map((response: User) => {
         const user = response;
@@ -33,15 +33,25 @@ export class AccountService {
   }
 
   register(model: any) {
-      return this.http.post(this.baseUrl + 'account/register', model).pipe(
-        map((user: User) => {
-          if (user) {
-            this.setCurrentUser(user);
-            this.presence.createHubConnection(user);
-          }
-          return user;
-        })
-        );
+      return this.http.post(this.baseUrl + 'account/register', model);
+  }
+
+  resendConfirmationEmail(email: any): Observable<any> {
+    return this.http.post(this.baseUrl + 'account/resendconfirmationemail', {email});
+  }
+
+  confirmEmail(userId: string, code: string): Observable<any> {
+    return this.http.get(this.baseUrl + 'account/confirmemail', {
+      params: { userId, code }
+    });
+  }
+
+  sendResetPasswordLink(email: any): Observable<any> {
+    return this.http.post(this.baseUrl + 'account/sendresetpasswordemail', {email});
+  }
+
+  resetPassword(model: any): Observable<any> {
+    return this.http.post(this.baseUrl + 'account/resetpassword', model);
   }
 
   setCurrentUser(user: User) {

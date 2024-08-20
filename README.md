@@ -9,10 +9,13 @@
 - Details Edit page
 - Login/Logout User
 - Register new User
+- Email confirmation and password reset
 - Messages List
 - User Online Notifications
 - Instant message chat
 - Client cache for improved performance
+- 3 Different user Roles: Admin, Moderator and Member
+- Admin area to manage user permissions (WIP: manage photos)
 - Much more to come!...
 
 
@@ -34,6 +37,12 @@ Install docker desktop for your OS and run a docker postgres image in your machi
 `docker run --name dev -e POSTGRES_USER=YourPostgreSQLUser -e POSTGRES_PASSWORD=YourPostgresPasswordHere -p 5432:5432 -d postgres:latest`
 In the API project's root, reate an appsettings.Development.json file and add the connection string to the postgres container:
 ` "ConnectionStrings": {  "DefaultConnection": "Server=localhost; Port=5432; User id=YourPostgreSQLUser; Password=YourPasswordHere; Database=yourDBName" } `
+as well as your Sendgrid Email Server Key: 
+` "SendGridKey": "verySecretKeyHere", "SupportEmail": "yourOwnServiceEmail@yourDomain.com", `
+and the baseUrl for your client on dev:
+` "BaseUrl": "https://localhost:4200/", `
+and respective copies on your production settings.
+
 
 ### Deployment Notes: 
 For the client, run `ng build --configuration production` to generate the dist folder

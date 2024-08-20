@@ -17,10 +17,16 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError(error => {
+        if (request.headers.get('Skip-Global-Error-Handler')) {
+          return throwError(() => new Error(error));
+        }
+
         if (error) {
           switch (error.status) {
+           
             case 400:
               if (error.error.errors) {
+
                 //flatten nested errors that are within response and push them to this array
                 const modalStateErrors = [];
                 for (const key in error.error.errors) {
@@ -32,12 +38,16 @@ export class ErrorInterceptor implements HttpInterceptor {
               }
               else if (typeof(error.error) === 'object') {
                 this.toastr.error(error.statusText, error.status)
+              
               } else {
                 this.toastr.error(error.error, error.status);
               }
               break;
             case 401: 
-              this.toastr.error(error.statusText, error.status);
+              this.toastr.toastrConfig.timeOut = 15_000;
+              this.toastr.toastrConfig.positionClass = 'toast-bottom-center';
+              this.toastr.error("Ups... " + error.error); 
+              // this.toastr.error("error.statusText: " +error.statusText, " error.status: " + error.status);
               break;
             case 404: 
               this.router.navigateByUrl('/not-found');
@@ -49,12 +59,11 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             default:
               this.toastr.error('Something unexpected went wrong!');
-              console.log(error);
-              
+         
               break;
           }
         }
-        return throwError(error);
+        return throwError(() =>  new Error(error));
       })
     );
   }

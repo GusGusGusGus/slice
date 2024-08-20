@@ -8,6 +8,7 @@ using API.Services;
 using API.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -22,6 +23,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddIdentityServices(config);
 builder.Services.AddSignalR();
 // builder.Services.AddCors();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+builder.Services.Configure<ApplicationOptions>(builder.Configuration);
+
 
 var app = builder.Build();
 

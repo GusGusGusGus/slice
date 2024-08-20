@@ -40,7 +40,15 @@ export class PresenceService {
 
     this.hubConnection.on('GetOnlineUsers', (usernames: string[]) => {
       this.onlineUsersSource.next(usernames);
-      this.toastr.info(usernames.join(', ') + ' are online');
+      // if there is only one user, console.log
+      if (usernames.length == 1)
+      {
+      this.toastr.info(usernames.join(', ') + ' is online');
+
+      }
+      else {
+        this.toastr.info(usernames.join(', ') + ' are online');
+      }
     });
 
     this.hubConnection.on('NewMessageReceived', ({username, knownAs}) => {

@@ -14,6 +14,7 @@ import { PreventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.gua
 import { memberResolver } from './_resolvers/member-detailed.resolver';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminGuard } from './guards/admin.guard';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
       {path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]}
     ]
   },
+  {path: 'reset-password', component: ResetPasswordComponent},
   {path: 'errors', component: TestErrorsComponent},
   {path: 'server-error', component: ServerErrorComponent},
   {path: 'not-found', component: NotFoundComponent},

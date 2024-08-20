@@ -1,0 +1,12 @@
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-container svg {
+    max-width: 50%; /* Adjust the width as needed */
+    max-height: 50%; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+}

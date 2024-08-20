@@ -3,6 +3,7 @@ import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit{
 
   initializeForm() {
     this.registerForm = this.fb.group({
-      gender: ['male'],
+      gender: ['female'],
       username: ['', Validators.required],
       knownAs: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit{
       country: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', [Validators.required, this.matchValues('password')]],
+      email: ['', [Validators.required, Validators.email]],
     })
   }
 
@@ -55,14 +57,33 @@ export class RegisterComponent implements OnInit{
     this.accountService.register(this.registerForm.value).subscribe( 
       {
         next: (response) => {
-          this.router.navigateByUrl('/members');
+          this.toastr.toastrConfig.timeOut = 180000;
+          this.toastr.toastrConfig.extendedTimeOut = 180000;
+          this.toastr.toastrConfig.positionClass = 'toast-bottom-center';
+          this.toastr.success("<p><strong>Registration successful. Please check your email for a confirmation link.</strong></p> <p>Didn't receive a reset password email? Check your spam folder or click here to get a new link.</p>", 'Success 🥳')
+          .onTap
+          .pipe(take(1))
+          .subscribe(() => this.toasterClickedHandler());
+          
+          this.cancelRegister.emit(false);
         },
         error: (e) => {
-          console.log(e);
           this.validationErrors = e;
         },
       }
     );
+  }
+
+  toasterClickedHandler() {
+    this.accountService.resendConfirmationEmail(this.registerForm.get('email').value).subscribe(() => {
+      this.toastr.toastrConfig.timeOut = 180000;
+      this.toastr.toastrConfig.extendedTimeOut = 180000;
+      this.toastr.toastrConfig.positionClass = 'toast-bottom-center';
+      this.toastr.success("<p><strong>A new confirmation link was just sent to your email!</strong></p> <p>Didn't receive a reset password email? Check your spam folder or click here to get a new link.</p>", 'Success 🥳')
+      .onTap
+      .pipe(take(1))
+      .subscribe(() => this.toasterClickedHandler());
+    });
   }
 
   cancel() {
