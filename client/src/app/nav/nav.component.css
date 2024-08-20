@@ -36,7 +36,7 @@ img {
     transition: 0.4s;
 }
 
-.nav-link.hover {
+.nav-link:hover {
     background-color: #ddd;
     color: black;
   }
@@ -46,6 +46,23 @@ img {
     color: white; 
 }
  
+#reset-link {
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none !important;
+    white-space: nowrap; /* Prevents the text from breaking into a new line */
+    color: rgb(175 69 66);
+    /* transition: transform 0.2s ease; */
+}
+#reset-link:hover {
+    cursor: pointer;
+    display: inline;
+    font-weight: bold;
+    text-decoration: underline !important;
+    color: rgb(175 69 66);
+    /* transform: scale(1.03); Slightly scale up the text */
+
+}
 
 .navbar .dropdown-item.active,
 .navbar .dropdown-item:active {

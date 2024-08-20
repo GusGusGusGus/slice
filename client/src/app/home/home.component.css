@@ -1,0 +1,23 @@
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    position: relative;
+    margin: 20px auto;
+}
+
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 0.5px solid lightgray;
+    margin: 0 10px;
+}
+
+.separator span {
+    padding: 0 10px;
+    background: #f0f0f0; /* same as body background color */
+    color: #000;
+}

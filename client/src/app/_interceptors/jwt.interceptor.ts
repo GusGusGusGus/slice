@@ -16,6 +16,11 @@ export class JwtInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let currentUser: User;
+
+    if (request.url.includes('/api/account/confirmemail') || request.url.includes('/api/account/sendresetpasswordemail') || request.url.includes('/api/account/resetpassword')) {
+      return next.handle(request);
+    }
+    
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => currentUser = user);
     if (currentUser) {
       request = request.clone({

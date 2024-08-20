@@ -38,18 +38,23 @@
         <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()" 
         autocomplete="off">
           <input 
+            class="nav-link" 
             name="username"
-            [(ngModel)]="model.username"
+            [(ngModel)]="model.usernameOrEmail"
             class="form-control me-2" 
             type="text" 
-            placeholder="Username">
-          <input 
+            placeholder="Username or E-mail">
+          <input
+            class="nav-link"  
             name="password"
             [(ngModel)]="model.password"
             class="form-control me-2" 
             type="password" 
             placeholder="Password">
           <button class="btn btn-success" type="submit">Login</button>
+          <div>
+            <a id="reset-link" (click)="openResetPasswordModal()">Forgot your password?</a>
+          </div>
         </form>
       </div>
     <!-- </div> -->
