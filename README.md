@@ -45,7 +45,7 @@ and respective copies on your production settings.
 
 
 ### Deployment Notes: 
-For the client, run `ng build --configuration production` to generate the dist folder
+For the client, run `ng build --configuration production` to generate the dist folder. 
 My instance is deployed to Heroku. Create an account and login locally. In the Heroku dashboard, create the app.
 Then, within the git repo, set the remote to point to that heroku app with `heroku git:remote -a theNameOfYourHerokuApp`.
 Within Heroku, I installed the Heroku Postgres Add-on
