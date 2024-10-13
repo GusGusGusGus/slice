@@ -10,24 +10,65 @@ img {
 }
 
 #navbar {
-    /* overflow: hidden; */
-    background-color: #f1f1f1;
-    padding: 25px 10px; /* Large padding which will shrink on scroll (using JS) */
-    transition: 0.4s; 
-    position: fixed; /* Sticky/fixed navbar */
+    background-color: #35355e;
+    padding: 25px 0px;
+    transition: 0.4s;
+    position: fixed;
     width: 100%;
-    top: 0; /* At the top */
+    top: 0;
     z-index: 99;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: -1;
+}
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+    animation-delay: -8s;
+    animation-duration: 33s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
 }
 
 #navbar a {
     float: left;
     display: block;
     text-align: center;
-    transition: 0.4s; 
+    transition: 0.4s;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    position: relative;
+    z-index: 1;
 }
 
 #navbar #logo {
@@ -69,6 +110,10 @@ img {
     color: black !important;
     font-weight: bold !important;
 }
+
+.dropdown-menu {
+    transform: translate(10px, -20px);
+}
   
 @media screen and (max-width: 580px) {
     #navbar {
@@ -83,3 +128,52 @@ img {
         float: none;
     }
 }
+
+@media (min-width: 768px) {
+    .animate {
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+    }
+}
+  
+ @keyframes slideIn {
+    0% {
+      transform: translateY(-1rem);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0rem);
+      opacity: 1;
+    }
+  
+    0% {
+      transform: translateY(-1rem);
+      opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+  
+    100% {
+      -webkit-transform: translateY(1);
+      -webkit-opacity: 1;
+    }
+  
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+  }
+  
+  .slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+  }
+  

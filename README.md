@@ -1,6 +1,6 @@
-# 👉👌 Mingle Dating App 💦🍑🍑🍌
+# Slice App 
 
-## A Social Network experiment with some special tools coming up! Stay tuned...
+## Fractional Real-Estate Investing 🏰🏗️🏡🏬🏛️
 
 ### Features: 
 - User profiles with Description, Looking For, Interests, Photo Gallery and Messages
@@ -19,7 +19,7 @@
 - Much more to come!...
 
 
-## [Check out the live demo here](https://mingledatingapp-6a24bc067511.herokuapp.com/)
+## [Live demo coming soon]()
 
 
 ### Client: 
@@ -58,6 +58,3 @@ Push: `git push origin main`
 After logging in to Heroku CLI on your local machine, please run the post_deployment.bat file after pushing to origin main branch on first run, as it will fetch the heroku app url and set it as an ALLOWED ORIGIN environment variable within the heroku platform. If you don't do this, you might experience CORS errors on runtime.
 
 
-![screenshot user list](https://github.com/user-attachments/assets/819a3a97-9280-479a-b463-69aa9588ee0b)
-
-![edit detailspage](https://github.com/user-attachments/assets/f3ea6a4d-2ae7-4b14-b026-48d29228c1d9)

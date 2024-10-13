@@ -20,16 +20,16 @@ import { ParticlesService } from './particles/particles.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'The Mingle app';
+  title = 'The Slice app';
   users: any;
 
-  id = "tsparticles";
-  particlesUrl = "../assets/particles.json";
-  particlesOptions: ISourceOptions = {
-    particleCount: 10,
-    spread: 70,
-    origin: { y: 0.6 }
-  };
+  // id = "tsparticles";
+  // particlesUrl = "../assets/particles.json";
+  // particlesOptions: ISourceOptions = {
+  //   particleCount: 10,
+  //   spread: 70,
+  //   origin: { y: 0.6 }
+  // };
 
   constructor(
     private accountService: AccountService, 
@@ -38,10 +38,10 @@ export class AppComponent implements OnInit {
   
   ngOnInit() {
    this.setCurrentUser();
-    void this.ngParticlesService.init(async (engine: Engine) => {
-      console.log("init", engine);
-      await loadSlim(engine);
-    });
+    // void this.ngParticlesService.init(async (engine: Engine) => {
+    //   console.log("init", engine);
+    //   await loadSlim(engine);
+    // });
   }
 
   setCurrentUser() {
@@ -52,9 +52,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public particlesLoaded(container: Container): void {
-    console.log("loaded", container);
-  }
+  // public particlesLoaded(container: Container): void {
+  //   console.log("loaded", container);
+  // }
 
   
 }

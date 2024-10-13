@@ -477,6 +477,9 @@ $RECYCLE.BIN/
 *.lnk
 
 appsettings.*
-datingapp.db
+Slice.db
 *.db-shm
 *.db-wal
+
+*.dockerfile
+compose.yaml

@@ -1,7 +1,22 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary" id="navbar">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar">
+
+    <!-- SVG wave -->
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0" fill="rgba(33, 150, 243, 0.7)" />
+        <use href="#gentle-wave" x="48" y="3" fill="rgba(100, 181, 246, 0.5)" />
+        <use href="#gentle-wave" x="48" y="5" fill="rgba(187, 222, 251, 0.3)" />
+        <use href="#gentle-wave" x="48" y="5" fill="rgba(187, 222, 255, 0.3)" />
+      </g>
+    </svg>
+ 
+
     <div class="container">
      
-      <a class="navbar-brand" id="logo" href="#">👉👌 Mingle</a>
+      <a class="navbar-brand" id="logo" href="#">🍕 Slice</a>
       <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
@@ -18,6 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" routerLink='/messages'routerLinkActive='active' >Messages</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/timeline' routerLinkActive='active' >Timeline</a>
+          </li>
           <li *appHasRole="['Admin', 'Moderator']" class="nav-item">
             <a class="nav-link" routerLink='/admin'routerLinkActive='active' >Admin</a>
           </li>
@@ -29,7 +47,7 @@
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
           <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.username}}">
           <a class="dropdown-toggle text-light" dropdownToggle style="color: white; text-decoration: none; margin-left: 1rem;" >Welcome {{user.knownAs || user.username | titlecase}}</a>
-          <div class="dropdown-menu mt-3" *dropdownMenu>
+          <div class="dropdown-menu mt-3 animate slideIn" *dropdownMenu>
             <a class="dropdown-item" routerLink='/member/edit' routerLinkActive='active'>Edit Profile</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" (click)="logout()">Logout</a>

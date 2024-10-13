@@ -24,9 +24,11 @@ builder.Services.AddIdentityServices(config);
 builder.Services.AddSignalR();
 // builder.Services.AddCors();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddSingleton<IIDService, IDService>();
 
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 builder.Services.Configure<ApplicationOptions>(builder.Configuration);
+
 
 
 var app = builder.Build();

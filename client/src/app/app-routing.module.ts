@@ -15,6 +15,7 @@ import { memberResolver } from './_resolvers/member-detailed.resolver';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
       {path: 'member/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
-      {path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]}
+      {path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]},
+      {path: 'timeline', component: TimelineComponent}
     ]
   },
   {path: 'reset-password', component: ResetPasswordComponent},
