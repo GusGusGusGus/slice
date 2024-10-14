@@ -27,7 +27,6 @@ namespace API.Controllers
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
         private readonly IEmailSender _emailSender;
-        private readonly IIDService _idService;
         private readonly ApplicationOptions _applicationOptions;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
@@ -38,15 +37,13 @@ namespace API.Controllers
             ITokenService tokenService, 
             IMapper mapper,
             IEmailSender emailSender,
-            IOptions<ApplicationOptions> optionsAccessor,
-            IIDService idService)
+            IOptions<ApplicationOptions> optionsAccessor)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _tokenService = tokenService;
             _mapper = mapper;
             _emailSender = emailSender;
-            _idService = idService;
             _applicationOptions = optionsAccessor.Value;
         }
 
@@ -415,12 +412,5 @@ namespace API.Controllers
 
 
 
-        //get enpoint to test IDService
-        // [AllowAnonymous]
-        [HttpGet("startcc")]
-        public void StartCC()
-        {
-             _idService.Start();        
-        }
     }
 }

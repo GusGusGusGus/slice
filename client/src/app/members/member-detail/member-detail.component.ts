@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from 'src/app/_models/member';
-import { GalleryModule, GalleryItem, ImageItem, Gallery, ImageSize } from 'ng-gallery';
 import 'hammerjs';
 import { SharedModule } from 'src/app/_modules/shared.module';
 import { CommonModule } from '@angular/common';
@@ -24,12 +23,12 @@ import { MembersService } from 'src/app/_services/members.service';
     templateUrl: './member-detail.component.html',
     styleUrls: ['./member-detail.component.css'],
     standalone: true,
-    imports: [CommonModule, SharedModule, GalleryModule, MemberMessagesComponent]
+    imports: [CommonModule, SharedModule, MemberMessagesComponent]
 })
 export class MemberDetailComponent implements OnInit, OnDestroy {
   @ViewChild('memberTabs', {static: true}) memberTabs: TabsetComponent;
   member: Member;
-  galleryImages: GalleryItem[] = [];
+  // galleryImages: GalleryItem[] = [];
   activeTab: TabDirective;
   messages: Message[] = [];
   user: User;

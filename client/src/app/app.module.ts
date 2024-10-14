@@ -71,7 +71,6 @@ import { TimelineComponent } from './timeline/timeline.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
-    ParticlesModule
  
 ],
   providers: [
