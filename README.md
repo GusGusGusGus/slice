@@ -1,6 +1,6 @@
-# AskMyCV App 
+# Slice App 
 
-## AI powered Job Board 🤖💼🚀🛠️
+## Fractional Real Estate 🏘️🏗️
 
 ### Features: 
 - User profiles with Description, Looking For, Interests, Photo Gallery and Messages
@@ -36,7 +36,7 @@
 ### Development Notes: 
 Install pgAdmin or some other DBMS to manage PortgreSQL locally
 Install docker desktop for your OS and run a docker postgres image in your machine with the command:
-`docker run --name askmycv-local-dev -e POSTGRES_USER=YourPostgreSQLUser -e POSTGRES_PASSWORD=YourPostgresPasswordHere -p 5432:5432 -d postgres:latest`
+`docker run --name dev -e POSTGRES_USER=YourPostgreSQLUser -e POSTGRES_PASSWORD=YourPostgresPasswordHere -p 5432:5432 -d postgres:latest`
 In the API project's root, reate an appsettings.Development.json file and add the connection string to the postgres container:
 ` "ConnectionStrings": {  "DefaultConnection": "Server=localhost; Port=5432; User id=YourPostgreSQLUser; Password=YourPasswordHere; Database=yourDBName" } `
 as well as your Sendgrid Email Server Key: 

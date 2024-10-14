@@ -84,7 +84,7 @@ namespace API.Controllers
 
             try
             {
-                await _emailSender.SendEmailAsync(user.Email!, "AskMyCV: Account Confirmation",
+                await _emailSender.SendEmailAsync(user.Email!, "Slice: Account Confirmation",
                     BuildConfirmationEmailMarkup(callbackUrl));
             }
             catch (Exception ex)
@@ -165,11 +165,11 @@ namespace API.Controllers
                         <h1>Confirm your email</h1>
                     </div>
                     <div class='content'>
-                        <p>Thank you for registering with AskMyCV =) Your new adventure is about to start! Please confirm your email by clicking the button below.</p>
+                        <p>Thank you for registering with Slice =) Your new adventure is about to start! Please confirm your email by clicking the button below.</p>
                         <a href='{callbackUrl}' class='button'>Click here to confirm your Email</a>
                     </div>
                     <div class='footer'>
-                        <p>&copy; 2024 AskMyCV</p>
+                        <p>&copy; 2024 Slice</p>
                     </div>
                 </div>
             </body>
@@ -234,7 +234,7 @@ namespace API.Controllers
                         <a href='{callbackUrl}' class='button'>Click here to reset your password</a>
                     </div>
                     <div class='footer'>
-                        <p>&copy; 2024 AskMyCV</p>
+                        <p>&copy; 2024 Slice</p>
                     </div>
                 </div>
             </body>
@@ -315,7 +315,7 @@ namespace API.Controllers
                 };
                 var callbackUrl = QueryHelpers.AddQueryString($"{_applicationOptions.BaseUrl}/reset-password", param);
 
-                await _emailSender.SendEmailAsync(model.Email, "AskMyCV: Password Reset", BuildResetPasswordEmailMarkup(callbackUrl));
+                await _emailSender.SendEmailAsync(model.Email, "Slice: Password Reset", BuildResetPasswordEmailMarkup(callbackUrl));
 
                 return Ok(new {message = "Password reset email sent. Please check your email."} );
             }
