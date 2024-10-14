@@ -24,7 +24,7 @@
 
 
 ### Client: 
-*Angular 17* 🅰️
+*Angular 18* 🅰️
 ### Server: 
 *.Net 7* #️⃣
 ### ORM: 

@@ -56,18 +56,18 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
       params['tab'] ? this.selectTab(params['tab']) : this.selectTab(0);
     });
     
-    this.galleryImages = this.getImages();
+    // this.galleryImages = this.getImages();
   }
   
 
       
-  getImages(): GalleryItem[] {
-    const images = [];
-    for (const photo of this.member.photos) {
-      images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
-    }
-    return images;
-  }
+  // getImages(): GalleryItem[] {
+  //   const images = [];
+  //   for (const photo of this.member.photos) {
+  //     images.push(new ImageItem({ src: photo?.url, thumb: photo?.url}));
+  //   }
+  //   return images;
+  // }
 
 
   loadMessages() {

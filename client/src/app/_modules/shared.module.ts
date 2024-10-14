@@ -4,7 +4,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from "ngx-bootstrap/tabs";
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { FileUploadModule } from 'ng2-file-upload';
+// import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
@@ -24,7 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     }),
     TabsModule.forRoot(),
     NgxSpinnerModule.forRoot(),
-    FileUploadModule,
+    // FileUploadModule,
     BsDatepickerModule.forRoot(),
     PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
@@ -36,7 +36,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ToastrModule,
     TabsModule,
     NgxSpinnerModule,
-    FileUploadModule,
+    // FileUploadModule,
     BsDatepickerModule,
     PaginationModule,
     ButtonsModule,

@@ -30,7 +30,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserManagementComponent } from "./admin/user-management/user-management.component";
 import { PhotoManagementComponent } from "./admin/photo-management/photo-management.component";
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
-import { ParticlesModule } from './particles/particles.module';
+// import { ParticlesModule } from './particles/particles.module';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ResetPasswordModalComponent } from './modals/reset-password-modal/reset-password-modal.component';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -61,7 +61,8 @@ import { TimelineComponent } from './timeline/timeline.component';
         ResetPasswordModalComponent,
         TimelineComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], imports: [
+        BrowserModule,
         AppRoutingModule,
         NgbModule,
         FormsModule,
