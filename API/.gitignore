@@ -477,7 +477,7 @@ $RECYCLE.BIN/
 *.lnk
 
 appsettings.*
-Slice.db
+AskMyCV.db
 *.db-shm
 *.db-wal
 

@@ -20,7 +20,7 @@ import { ParticlesService } from './particles/particles.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'The Slice app';
+  title = 'The AskMyCV app';
   users: any;
 
   // id = "tsparticles";
