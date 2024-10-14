@@ -18,6 +18,7 @@ public class IDService : IIDService
         PTEID_Config.SetTestMode(true);
         // this.readerContext = null;
         // this.card = null;
+        
     }
 
     public void Start()
