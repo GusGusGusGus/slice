@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './nav/nav.component';
@@ -36,48 +36,41 @@ import { ResetPasswordModalComponent } from './modals/reset-password-modal/reset
 import { TimelineComponent } from './timeline/timeline.component';
 
 //DetailsComponent is now a standalone component, so it isn't present in the declarations array of the AppModule anymore. 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    HomeComponent,
-    RegisterComponent,
-    MemberListComponent,
-    ListsComponent,
-    MessagesComponent,
-    TestErrorsComponent,
-    NotFoundComponent,
-    ServerErrorComponent,
-    MemberCardComponent,
-    MemberEditComponent,
-    PhotoEditorComponent,
-    TextInputComponent,
-    DateInputComponent,
-    HasRoleDirective,
-    PhotoManagementComponent,
-    UserManagementComponent,
-    AdminPanelComponent,
-    RolesModalComponent,
-    ResetPasswordComponent,
-    ResetPasswordModalComponent,
-    TimelineComponent
+@NgModule({ declarations: [
+        AppComponent,
+        NavComponent,
+        HomeComponent,
+        RegisterComponent,
+        MemberListComponent,
+        ListsComponent,
+        MessagesComponent,
+        TestErrorsComponent,
+        NotFoundComponent,
+        ServerErrorComponent,
+        MemberCardComponent,
+        MemberEditComponent,
+        PhotoEditorComponent,
+        TextInputComponent,
+        DateInputComponent,
+        HasRoleDirective,
+        PhotoManagementComponent,
+        UserManagementComponent,
+        AdminPanelComponent,
+        RolesModalComponent,
+        ResetPasswordComponent,
+        ResetPasswordModalComponent,
+        TimelineComponent
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgbModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    SharedModule,
- 
-],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
-  ],
-  bootstrap: [AppComponent]
-})
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        SharedModule], providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
